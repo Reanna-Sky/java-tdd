@@ -14,8 +14,8 @@ public class Score {
 		playerBgameScore = "0";
 		
 		// remove these!
-		randomGameScore();
-		randomScore();
+//		randomGameScore();
+//		randomScore();
 	}
 	
 	public void nextSet() {
@@ -58,19 +58,20 @@ public class Score {
 	public int[] getPlayerBgames() {
 		return playerBgames;
 	}
-	
-	private void randomScore() {
-		for (int i=0;i<5;i++) {
-			playerAgames[i] = (int)(Math.random()*7);
-			playerBgames[i] = (int)(Math.random()*7);
-		}
-	}
-	
-	private void randomGameScore() {
-		String[] scoring = {"0","15","30","40","A"};
-		playerAgameScore = scoring[(int)(Math.random()*5)];
-		playerBgameScore = scoring[(int)(Math.random()*5)];
-	}
+
+//    This is for the gooy
+//	private void randomScore() {
+//		for (int i=0;i<5;i++) {
+//			playerAgames[i] = (int)(Math.random()*7);
+//			playerBgames[i] = (int)(Math.random()*7);
+//		}
+//	}
+//
+//	private void randomGameScore() {
+//		String[] scoring = {"0","15","30","40","A"};
+//		playerAgameScore = scoring[(int)(Math.random()*5)];
+//		playerBgameScore = scoring[(int)(Math.random()*5)];
+//	}
 	
 	
 }
