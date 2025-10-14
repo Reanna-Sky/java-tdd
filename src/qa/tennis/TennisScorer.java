@@ -24,27 +24,27 @@ public class TennisScorer {
 
 
 	public String currentScore() {
-		char[] winningSequence = previousString.toCharArray();
-		int countA = 0;
+        char[] winningSequence = previousString.toCharArray();
+        int countA = 0;
         int countB = 0;
 
-        for (char playerA : winningSequence ){
-            if (playerA == 'a' || playerA == 'A'){
+        for (char playerA : winningSequence) {
+            if (playerA == 'a' || playerA == 'A') {
                 ++countA;
-            }
-            else {
+            } else {
                 countB++;
             }
         }
 
-        if (countA > 3 && countB > 3 && countA == countB) {
 
-            return "40:40";
-        } else if (countA > 3 && countB > 3 && countA > countB) {
-            return "A:40";
-
-        }else if (countA > 3 && countB > 3 && countA < countB){
-            return "40:A";
+        if (countA > 3 && countB > 3) {
+            if (countA == countB) {
+                return "40:40";
+            } else if (countA > countB) {
+                return "A:40";
+            } else {
+                return "40:A";
+            }
         }
 
         String result = scoring[countA] + ":" + scoring[countB];

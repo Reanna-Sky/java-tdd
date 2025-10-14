@@ -97,5 +97,6 @@ public class ScoreTest {
         assertEquals("A:40", ts.currentScore());
     }
 
+    
 
 }
