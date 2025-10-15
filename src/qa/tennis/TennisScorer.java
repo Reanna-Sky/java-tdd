@@ -91,21 +91,21 @@ public class TennisScorer {
             if (playerA == 'a' || playerA == 'A') {
                 if (countA == 0) {
                     countA++;
-                }else if(countA == FIFTEEN){
+                } else if (countA == FIFTEEN) {
                     countA++;
-                }else if (countA == THIRTY){
+                } else if (countA == THIRTY) {
                     countA++;
-                }else if(countA == FORTY){
-                    if (countB < FORTY){
+                } else if (countA == FORTY) {
+                    if (countB < FORTY) {
                         //PLAYER A WINS
                         incrementGames('A');
                         previousString = "";
-                    }else if (countB == FORTY){ //This would take countA to FORTY
+                    } else if (countB == FORTY) { //This would take countA to FORTY
                         countA++;
-                    }else if(countB == ADV){
+                    } else if (countB == ADV) {
                         countB = FORTY;
                     }
-                }else{
+                } else {
                     //PLAYER A WINS
                     incrementGames('A');
                     previousString = "";
@@ -114,21 +114,21 @@ public class TennisScorer {
             } else {
                 if (countB == 0) {
                     countB++;
-                }else if(countB == FIFTEEN){
+                } else if (countB == FIFTEEN) {
                     countB++;
-                }else if (countB == THIRTY){
+                } else if (countB == THIRTY) {
                     countB++;
-                }else if(countB == FORTY){
-                    if (countA < FORTY){
+                } else if (countB == FORTY) {
+                    if (countA < FORTY) {
                         //PLAYER B WINS
                         incrementGames('B');
                         previousString = "";
-                    }else if (countA == FORTY){ //This would take countB to FORTY
+                    } else if (countA == FORTY) { //This would take countB to FORTY
                         countB++;
-                    }else if(countA == ADV){
+                    } else if (countA == ADV) {
                         countA = FORTY;
                     }
-                }else{
+                } else {
                     //PLAYER B WINS
                     incrementGames('B');
                     previousString = "";
@@ -137,37 +137,10 @@ public class TennisScorer {
         }
         int[] playerADisplay = score.getPlayerAgames();
         int[] playerBDisplay = score.getPlayerBgames();
-        return scoring[countA] + ":" + scoring[countB] + "\t" + playerADisplay[0] + "-" + playerBDisplay[0] + "  " + playerADisplay[1] + "-" + playerBDisplay[1]+ "  " + playerADisplay[2] + "-" + playerBDisplay[2] + "  " + playerADisplay[3] + "-" + playerBDisplay[3]+ "  " + playerADisplay[4] + "-" + playerBDisplay[4];
+        return scoring[countA] + ":" + scoring[countB] + "\t" + playerADisplay[0] + "-" + playerBDisplay[0] + "  " + playerADisplay[1] + "-" + playerBDisplay[1] + "  " + playerADisplay[2] + "-" + playerBDisplay[2] + "  " + playerADisplay[3] + "-" + playerBDisplay[3] + "  " + playerADisplay[4] + "-" + playerBDisplay[4];
+    }
 
-
-//        String result = "";
-//        if (countA < 4 && countB < 4) { //This prints results up to 40:40
-//            result += scoring[countA] + ":" + scoring[countB];
-//        }
-//
-//        else if (countA == 4 && countB < 3) { //this is when player a wins
-//           result += "0:0";
-//
-//        } else if (countA > 3 && countB  == 3){
-//            return "A:40";
-//
-//        } else if (countA == 3 && countB >3 ) {
-//            return "40:A";
-//
-//        } else  if (countA > 3 && countB > 3) {
-//            if (countA == countB) {
-//                return "40:40";
-//            } else if (countA > countB) {
-//                return "A:40";
-//            } else {
-//                return "40:A";
-//            }
-//        }
-//
-//        String result = scoring[countA] + ":" + scoring[countB];
-//		return result;
-	}
-
+    
 	public Score getScore() {
 		return score;
 	}
