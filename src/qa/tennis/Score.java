@@ -5,7 +5,7 @@ public class Score {
 	private int[] playerBgames;
 	private String playerAgameScore;
 	private String playerBgameScore;
-	private int currentSet = 1;
+	private int currentSet = 0;
 	
 	public Score() {
 		playerAgames = new int[5];
@@ -43,13 +43,13 @@ public class Score {
 		this.playerBgameScore = playerBgameScore;
 	}
 
-	public int getCurrentSet() {
-		return currentSet;
-	}
+	public int getCurrentSet() {return currentSet; }
 
 	public void setCurrentSet(int currentSet) {
 		this.currentSet = currentSet;
 	}
+
+    public void incrementCurrentSet(){ this.currentSet++;}
 
 	public int[] getPlayerAgames() {
 		return playerAgames;
@@ -58,6 +58,15 @@ public class Score {
 	public int[] getPlayerBgames() {
 		return playerBgames;
 	}
+
+    public void setPlayerAgames(int[] playerAgames) {
+        this.playerAgames = playerAgames;
+    }
+    public void setPlayerBgames(int[] playerABgames) {
+        this.playerBgames = playerBgames;
+    }
+
+
 
 //    This is for the gooey
 //	private void randomScore() {

@@ -9,6 +9,7 @@ public class TennisScorer {
     private static final int FORTY = 3;
     private static final int FIFTEEN = 1;
     private static final int THIRTY = 2;
+    private static final int ZERO = 0;
 
 
 	public TennisScorer() {
@@ -24,6 +25,61 @@ public class TennisScorer {
 		previousString += players;
 	}
 
+    public void incrementGames(char player) {
+        int currentSet = score.getCurrentSet();
+        if (player == 'a' || player == 'A'){
+            int[] playerAGamesScores = score.getPlayerAgames();
+            switch(playerAGamesScores[currentSet]){
+                case  0:
+                    playerAGamesScores[currentSet] = 1;
+                    break;
+                case 1:
+                    playerAGamesScores[currentSet] = 2;
+                    break;
+                case 2:
+                    playerAGamesScores[currentSet] = 3;
+                    break;
+                case 3:
+                    playerAGamesScores[currentSet] = 4;
+                    break;
+                case 4:
+                    playerAGamesScores[currentSet] = 5;
+                    break;
+                case 5:
+                    playerAGamesScores[currentSet] = 6;
+                    break;
+                case 6:
+                    score.incrementCurrentSet();
+            }
+            score.setPlayerAgames(playerAGamesScores);
+        }
+        else {
+            int[] playerBGamesScores = score.getPlayerBgames();
+            switch (playerBGamesScores[currentSet]) {
+                case 0:
+                    playerBGamesScores[currentSet] = 1;
+                    break;
+                case 1:
+                    playerBGamesScores[currentSet] = 2;
+                    break;
+                case 2:
+                    playerBGamesScores[currentSet] = 3;
+                    break;
+                case 3:
+                    playerBGamesScores[currentSet] = 4;
+                    break;
+                case 4:
+                    playerBGamesScores[currentSet] = 5;
+                    break;
+                case 5:
+                    playerBGamesScores[currentSet] = 6;
+                    break;
+                case 6:
+                    score.incrementCurrentSet();
+            }
+            score.setPlayerBgames(playerBGamesScores);
+        }
+    } ;
 
 
 	public String currentScore() {
@@ -33,44 +89,89 @@ public class TennisScorer {
 
         for (char playerA : winningSequence) {
             if (playerA == 'a' || playerA == 'A') {
-                ++countA;
+                if (countA == 0) {
+                    countA++;
+                }else if(countA == FIFTEEN){
+                    countA++;
+                }else if (countA == THIRTY){
+                    countA++;
+                }else if(countA == FORTY){
+                    if (countB < FORTY){
+                        //PLAYER A WINS
+                        incrementGames('A');
+                        previousString = "";
+                    }else if (countB == FORTY){ //This would take countA to FORTY
+                        countA++;
+                    }else if(countB == ADV){
+                        countB = FORTY;
+                    }
+                }else{
+                    //PLAYER A WINS
+                    incrementGames('A');
+                    previousString = "";
+                }
+
             } else {
-                countB++;
+                if (countB == 0) {
+                    countB++;
+                }else if(countB == FIFTEEN){
+                    countB++;
+                }else if (countB == THIRTY){
+                    countB++;
+                }else if(countB == FORTY){
+                    if (countA < FORTY){
+                        //PLAYER B WINS
+                        incrementGames('B');
+                        previousString = "";
+                    }else if (countA == FORTY){ //This would take countB to FORTY
+                        countB++;
+                    }else if(countA == ADV){
+                        countA = FORTY;
+                    }
+                }else{
+                    //PLAYER B WINS
+                    incrementGames('B');
+                    previousString = "";
+                }
             }
         }
+        int[] playerADisplay = score.getPlayerAgames();
+        int[] playerBDisplay = score.getPlayerBgames();
+        return scoring[countA] + ":" + scoring[countB] + "\t" + playerADisplay[0] + "-" + playerBDisplay[0] + "  " + playerADisplay[1] + "-" + playerBDisplay[1]+ "  " + playerADisplay[2] + "-" + playerBDisplay[2] + "  " + playerADisplay[3] + "-" + playerBDisplay[3]+ "  " + playerADisplay[4] + "-" + playerBDisplay[4];
 
-        String result = "";
-        if (countA < 4 && countB < 4) { //This prints results up to 40:40
-            result += scoring[countA] + ":" + scoring[countB];
-        }
 
-        else if (countA == 4 && countB < 3) { //this is when player a wins
-           result += "0:0";
-
-        } else if (countA > 3 && countB  == 3){
-            return "A:40";
-
-        } else if (countA == 3 && countB >3 ) {
-            return "40:A";
-
-        } else  if (countA > 3 && countB > 3) {
-            if (countA == countB) {
-                return "40:40";
-            } else if (countA > countB) {
-                return "A:40";
-            } else {
-                return "40:A";
-            }
-        }
-
+//        String result = "";
+//        if (countA < 4 && countB < 4) { //This prints results up to 40:40
+//            result += scoring[countA] + ":" + scoring[countB];
+//        }
+//
+//        else if (countA == 4 && countB < 3) { //this is when player a wins
+//           result += "0:0";
+//
+//        } else if (countA > 3 && countB  == 3){
+//            return "A:40";
+//
+//        } else if (countA == 3 && countB >3 ) {
+//            return "40:A";
+//
+//        } else  if (countA > 3 && countB > 3) {
+//            if (countA == countB) {
+//                return "40:40";
+//            } else if (countA > countB) {
+//                return "A:40";
+//            } else {
+//                return "40:A";
+//            }
+//        }
+//
 //        String result = scoring[countA] + ":" + scoring[countB];
-		return result;
+//		return result;
 	}
 
 	public Score getScore() {
 		return score;
 	}
-	
+
 	
 
 }
