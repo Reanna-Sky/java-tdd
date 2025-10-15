@@ -12,16 +12,11 @@ public class Score {
 		playerBgames = new int[5];
 		playerAgameScore = "0";
 		playerBgameScore = "0";
-		
-		// remove these!
-//		randomGameScore();
-//		randomScore();
 	}
 	
 	public void nextSet() {
 		currentSet++;
 	}
-	
 	
 	public String toString() {
 		return "";
@@ -59,12 +54,9 @@ public class Score {
 		return playerBgames;
 	}
 
-    public void setPlayerAgames(int[] playerAgames) {
-        this.playerAgames = playerAgames;
-    }
-    public void setPlayerBgames(int[] playerABgames) {
-        this.playerBgames = playerBgames;
-    }
+    public void setPlayerAgames(int[] playerAgames) {this.playerAgames = playerAgames;}
+
+    public void setPlayerBgames(int[] playerABgames) {this.playerBgames = playerBgames;}
 
 
 

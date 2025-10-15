@@ -140,7 +140,7 @@ public class TennisScorer {
         return scoring[countA] + ":" + scoring[countB] + "\t" + playerADisplay[0] + "-" + playerBDisplay[0] + "  " + playerADisplay[1] + "-" + playerBDisplay[1] + "  " + playerADisplay[2] + "-" + playerBDisplay[2] + "  " + playerADisplay[3] + "-" + playerBDisplay[3] + "  " + playerADisplay[4] + "-" + playerBDisplay[4];
     }
 
-    
+
 	public Score getScore() {
 		return score;
 	}
