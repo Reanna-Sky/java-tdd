@@ -6,7 +6,10 @@ public class TennisScorer {
 //    Final means its fixed. Static means there is only 1 no matter how many objects you create
     static final String[] scoring = {"0","15","30","40","A"};
     private static final int ADV = 4;
-    
+    private static final int FORTY = 3;
+    private static final int FIFTEEN = 1;
+    private static final int THIRTY = 2;
+
 
 	public TennisScorer() {
 		score = new Score();
