@@ -59,7 +59,7 @@ public class Score {
 		return playerBgames;
 	}
 
-//    This is for the gooy
+//    This is for the gooey
 //	private void randomScore() {
 //		for (int i=0;i<5;i++) {
 //			playerAgames[i] = (int)(Math.random()*7);
